@@ -1,0 +1,17 @@
+.app {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  align-items: center;
+}
+
+.title {
+  margin:0 auto;
+  padding:0;
+  text-align: center;
+  font-family: "Comfortaa";
+  font-size: 72px;
+  font-weight: 100;
+  color:#dcc1c0;
+}

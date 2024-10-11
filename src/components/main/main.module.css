@@ -1,0 +1,33 @@
+.content {
+  margin:0 auto;
+  padding:0;
+  text-align: center;
+  max-width: 640px;
+}
+
+.line {
+  display:flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 58px;
+  background-color: white;
+}
+
+.line__first {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width:58px;
+}
+
+.line__second {
+  background-color: inherit;
+  padding: 19px 0px;
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  align-items: center;
+}
