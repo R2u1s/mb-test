@@ -16,5 +16,5 @@
 с помощью команды npm i && npm run start
 #### Проект
 выполнен в рамках тестового задания на позицию frontend разработчика
-##### Текст задания
+#### Текст задания
 [Можно посмотреть здесь](https://docs.google.com/document/d/15QkApDkQqtzLSVW7Fpyluwj-BvUIHFXBjvvFCe77Aaw/edit?tab=t.0#heading=h.zavj7sd1thwb)
