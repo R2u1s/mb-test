@@ -1,0 +1,13 @@
+.add {
+  all: unset;
+  cursor: pointer; /* если нужен указатель */
+  width: 58px;
+  cursor: pointer;
+  color: #d2d2d2;
+  transition: color 0.3s ease;
+}
+
+.add:hover {
+  stroke: #dcc1c0;
+  color: #dcc1c0;
+}

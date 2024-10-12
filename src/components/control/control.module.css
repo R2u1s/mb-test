@@ -1,0 +1,52 @@
+.left {
+  color: black;
+  font-family: "Comfortaa";
+  font-size: 14px;
+  font-weight: normal;
+  padding:10px 10px;
+  min-width: 100px;
+}
+
+.line__last {
+  width:min-content;
+}
+
+.clear {
+  color: black;
+  font-family: "Comfortaa";
+  font-size: 14px;
+  font-weight: normal;
+  padding:10px 10px;
+  cursor: pointer;
+  transition:color 0.3s ease;
+}
+
+.clear:hover {
+  color:#dcc1c0;
+}
+
+.filter {
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+  align-self: center;
+}
+
+.filter__el {
+  color: black;
+  font-family: "Comfortaa";
+  font-size: 14px;
+  font-weight: normal;
+  padding:10px 10px;
+  cursor: pointer;
+  transition:color 0.3s ease;
+}
+
+.filter_status_active {
+  border: 1px solid #d2d2d2;
+  border-radius: 12px;
+}
+
+.filter__el:hover {
+  color:#dcc1c0;
+}

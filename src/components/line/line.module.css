@@ -1,0 +1,27 @@
+.line {
+  display:flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 0px;
+  background-color: white;
+  color:white;
+  box-sizing: border-box;
+}
+
+.line__last {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width:min-content;
+}
+
+.line__center {
+  background-color: inherit;
+  display: flex;
+  flex-flow: row;
+  flex-grow: 1;
+  align-items: center;
+}

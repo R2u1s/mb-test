@@ -5,7 +5,7 @@ interface Props {
   extraClass?: string;
 }
 
-export const ArrowIcon: React.FC<Props> = ({ fill = "#d2d2d2", extraClass = ""}) => {
+export const ArrowIcon: React.FC<Props> = ({ fill = "currentColor", extraClass = ""}) => {
   return (
     <svg
       width="24"

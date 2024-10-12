@@ -6,10 +6,15 @@
 }
 
 .input {
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
   outline: none;
   border: none;
   width: 100%;
   padding: 0;
+  margin:0;
   box-sizing: border-box;
   font-family: "Comfortaa";
   font-size: 18px;
