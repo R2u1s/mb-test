@@ -1,0 +1,9 @@
+export const CLASS_NEWTASK = '[class*="list_task"]';
+export const CLASS_CLEAR_BUTTON = '[class*="control_clear"]';
+export const CLASS_FILTER_EL = 'control_filter__el';
+export const CLASS_FILTER_EL_ACTIVE = 'control_filter_status_active';
+export const TEXT_FILTER_ALL = 'All';
+export const TEXT_FILTER_ACTIVE = 'Active';
+export const TEXT_FILTER_COMPLETED = 'Completed';
+export const TEXT_CONTROL_LEFT = '2\u00A0items\u00A0left';
+export const CLASS_CONTROL_LEFT = '[class*="control_left"]';

@@ -7,7 +7,7 @@ export const AddButton: FC<AddButtonProps> = ({ isShown, onClick }) => {
 
   return (
     <>
-      {isShown && <button className={styles.add} onClick={onClick}>
+      {isShown && <button className={styles.add} type="submit" onClick={onClick} disabled={!isShown}>
         <AddIcon />
       </button>}
     </>

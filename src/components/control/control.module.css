@@ -12,6 +12,7 @@
 }
 
 .clear {
+  all: unset;
   color: black;
   font-family: "Comfortaa";
   font-size: 14px;

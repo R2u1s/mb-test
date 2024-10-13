@@ -12,7 +12,7 @@ const ItemsLeft: FC<ItemsLeftProps> = ({ left }) => {
 
 const ClearCompleted: FC<ClearCompletedProps> = ({onClearHandler}) => {
   return (
-    <span className={styles.clear} onClick={onClearHandler}>Clear&nbsp;completed</span>
+    <button className={styles.clear} onClick={onClearHandler}>Clear&nbsp;completed</button>
   )
 }
 
