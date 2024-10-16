@@ -29,15 +29,10 @@ export interface ControlProps {
   onClear:()=>void
 }
 
-interface ComponentWithProps<T extends object> {
-  LineComponent: React.ComponentType<T>;
-  lineProps?: T;
-}
-
-export type LineWrapperProps<T1 extends object, T2 extends object, T3 extends object> = {
-  firstComponent: ComponentWithProps<T1>;
-  secondComponent: ComponentWithProps<T2>;
-  thirdComponent?: ComponentWithProps<T3>;
+export type LineWrapperProps = {
+  firstComponent: React.ReactNode;
+  secondComponent: React.ReactNode;
+  thirdComponent?: React.ReactNode;
   extraClass?: string;
 };
 

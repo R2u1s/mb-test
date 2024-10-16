@@ -1,4 +1,4 @@
-import {CLASS_NEWTASK} from '../../src/utils/test';
+import {CLASS_ADDBUTTON, CLASS_NEWTASK} from '../../src/utils/test';
 
 describe('Корректная работа инпута', function () {
   beforeEach(function () {
@@ -7,18 +7,18 @@ describe('Корректная работа инпута', function () {
 
   it('Пустой инпут дизейблит кнопку', () => {
     cy.get('input').should('be.empty');
-    cy.get('button[type=submit]').should('not.exist');
+    cy.get(CLASS_ADDBUTTON).should('not.exist');
   });
 
   it('Ввод строки в инпут включает кнопку submit', () => {
     cy.get('input').type('new task');
-    cy.get('button[type=submit]').should('be.visible');
+    cy.get(CLASS_ADDBUTTON).should('be.visible');
   });
 
   it('Вводим текст задачи и жмем submit', () => {
     const inputValue = 'new task 123'
-    cy.get('input').type(inputValue);
-    cy.get('button[type=submit]').click();
+    cy.get('input').clear().type(inputValue, { delay: 100 });
+    cy.get('form').submit();
     cy.get(CLASS_NEWTASK).should('contain.text', inputValue);
   });
 

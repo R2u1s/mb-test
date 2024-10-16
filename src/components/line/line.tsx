@@ -5,19 +5,19 @@ import { LineWrapperProps } from "../../types/types";
 //например для первой строки это будет стрелка, инпут, кнопка добавить
 //добавляемые компоненты могут быть с пропсами или без
 //третий компонент не обязательный - для task 
-export const Line = <T1 extends object, T2 extends object, T3 extends object>({
+
+export const Line: React.FC<LineWrapperProps> = ({
   firstComponent,
   secondComponent,
   thirdComponent,
-  extraClass=""
-}: LineWrapperProps<T1, T2, T3>) => {
-
+  extraClass = "",
+}) => {
   return (
     <div className={`${styles.line} ${extraClass}`}>
-      <div className={styles.line__last}><firstComponent.LineComponent {...firstComponent.lineProps || ({} as T1)} /></div>
-      <div className={styles.line__center}><secondComponent.LineComponent {...secondComponent.lineProps || ({} as T2)} /></div>
-      {thirdComponent && <div className={styles.line__last}><thirdComponent.LineComponent {...thirdComponent.lineProps || ({} as T3)} /></div>}
+      <div className={styles.line__last}>{firstComponent}</div>
+      <div className={styles.line__center}>{secondComponent}</div>
+      {thirdComponent && <div className={styles.line__last}>{thirdComponent}</div>}
     </div>
   );
-}
+};
 

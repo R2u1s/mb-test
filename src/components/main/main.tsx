@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent, useMemo, useCallback } from 'react';
 import styles from "./main.module.css";
 import { Input } from '../../ui/input/input';
 import { ArrowIcon } from '../../ui/icons/arrow-icon';
@@ -30,31 +30,34 @@ export const Main: FC = () => {
       done: false,
       text: text
     }
-    setTasks([...tasks, newTask]);
+    setTasks(prev => [...prev, newTask]);
     setInputValue('');
   }
 
   //коллбэк выполнения задачи
-  const doneTask = (id:string) => {
-    setTasks(
-      tasks.map(item => 
+  const doneTask = (id: string) => {
+    setTasks(prev =>
+      prev.map(item =>
         item.id === id ? { ...item, done: !item.done } : item
       )
     );
   }
 
   //значение фильтра
-  const [filter,setFilter] = useState<FilterValues>(FilterValues.All);
+  const [filter, setFilter] = useState<FilterValues>(FilterValues.All);
 
   //коллбэк удаления всех выполненных задач
-  const clearCompleted = () => {
-    setTasks(
-      tasks.filter(item => !item.done)
+  const clearCompleted = useCallback(() => {
+    setTasks(prevTasks =>
+      prevTasks.filter(item => !item.done)
     );
-  }
+  }, [setTasks]);
 
   //вычисляем сколько невыполненных задач осталось
-  const itemsLeft = tasks.filter(item => item.done === false).length;
+  const itemsLeft = useMemo(() =>
+    tasks.filter(item => !item.done).length,
+    [tasks]
+  );
 
   return (
     <main className={styles.content}>
@@ -63,27 +66,9 @@ export const Main: FC = () => {
         addTaskHandler(inputValue);
       }}>
         <Line
-          firstComponent={{
-            LineComponent: ArrowIcon,
-            lineProps: {
-              extraClass: `${styles.arrow} ${tasks.length > 0 ? '' : styles.arrow_status_inactive}`
-            }
-          }}
-          secondComponent={{
-            LineComponent: Input,
-            lineProps: {
-              value: inputValue,
-              placeholder: "What needs to be done?",
-              onChange: onChangeHandler
-            }
-          }}
-          thirdComponent={{
-            LineComponent: AddButton,
-            lineProps: {
-              isShown:inputValue.length > 0,
-              onClick:()=>{addTaskHandler(inputValue)}
-            }
-          }}
+          firstComponent={<ArrowIcon extraClass={`${styles.arrow} ${tasks.length > 0 ? '' : styles.arrow_status_inactive}`} />}
+          secondComponent={<Input value={inputValue} placeholder={"What needs to be done?"} onChange={onChangeHandler} />}
+          thirdComponent={<AddButton isShown={inputValue.length > 0} onClick={() => { addTaskHandler(inputValue)}} />}
           extraClass={styles.border}
         />
       </form>

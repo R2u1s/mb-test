@@ -35,9 +35,9 @@ export const Control: FC<ControlProps> = ({ left,filter,setFilter,onClear }) => 
 
   return (
     <Line
-      firstComponent={{ LineComponent: ItemsLeft, lineProps: { left: left } }}
-      secondComponent={{ LineComponent: Filter, lineProps: { filterValue: filter, onClick: setFilter } }}
-      thirdComponent={{ LineComponent: ClearCompleted, lineProps: {onClearHandler:onClear} }}
+      firstComponent={<ItemsLeft left={left} />}
+      secondComponent={<Filter filterValue={filter} onClick={setFilter} /> }
+      thirdComponent={<ClearCompleted onClearHandler={onClear} />}
     />
   );
 }

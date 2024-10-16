@@ -13,20 +13,12 @@ const Task: FC<TTask> = ({ text, done }) => {
 
 //функция выдает булево значение, которое отражает нужно ли показывать задачу
 //в списке в соответствии с выбранным фильтром
-const isShownByFilter = (filter:FilterValues,task:TTask):boolean => {
+const isShownByFilter = (filter: FilterValues, task: TTask): boolean => {
   if (filter === FilterValues.Active) {
-    if (task.done) {
-      return false;
-    } else {
-      return true;
-    }
+    return !task.done;
   }
   if (filter === FilterValues.Completed) {
-    if (task.done) {
-      return true;
-    } else {
-      return false;
-    }
+    return task.done;
   }
   return true;
 }
@@ -40,20 +32,8 @@ export const List: FC<ListProps> = ({ tasks,filter, onClick }) => {
           return (
             isShownByFilter(filter,item) && <li onClick={()=>{onClick(item.id)}} key={item.id}>
               <Line
-                firstComponent={{
-                  LineComponent: Check,
-                  lineProps: {
-                    isDone: item.done
-                  }
-                }}
-                secondComponent={{
-                  LineComponent: Task,
-                  lineProps: {
-                    id: item.id,
-                    text: item.text,
-                    done: item.done
-                  }
-                }}
+                firstComponent={<Check isDone={item.done} />}
+                secondComponent={<Task id={item.id} text={item.text} done={item.done} />}
                 extraClass={styles.line}
               />
             </li>
